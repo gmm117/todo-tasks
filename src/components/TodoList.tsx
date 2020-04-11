@@ -11,27 +11,24 @@ const TodoListBlock = styled.div`
 `;
 
 type TodoListProps = {
-    children? : React.ReactNode;
-}
-
-function TodoList( { children } : TodoListProps ) {
-    const todos = useTodoState();
-
-    return (
-        <TodoListBlock>
-            {
-              todos.map( 
-                todo => <TodoItem 
-                   key={todo.id}
-                   id={todo.id}
-                   text={todo.text}
-                   done={todo.done}
-               />
-              )
-            }
-            
-        </TodoListBlock>
-     );
+  children?: React.ReactNode;
 };
+
+function TodoList({ children }: TodoListProps) {
+  const todos = useTodoState();
+
+  return (
+    <TodoListBlock>
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          id={todo.id}
+          text={todo.text}
+          done={todo.done}
+        />
+      ))}
+    </TodoListBlock>
+  );
+}
 
 export default TodoList;
